@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import { Container } from './AttractionsList.styles'
 import lineHeart from '../../assets/image/line-heart.svg'
 import fillHeart from '../../assets/image/fill-heart.svg'
@@ -17,7 +17,7 @@ const AttractionsList = ({ data, index }) => {
     enabled: !!lineLikeId,
   })
 
-  const onLikeClick = useCallback(e => {
+  const handleLikeClick = useCallback(e => {
     if (e.target.className === 'fillHeart') {
       setLineLikeId(e.target.id)
       setIsLike(prev => !prev)
@@ -40,7 +40,7 @@ const AttractionsList = ({ data, index }) => {
         </div>
         <span>{data.like.count > 999 ? '999+' : data.like.count}</span>
         <img
-          onClick={onLikeClick}
+          onClick={handleLikeClick}
           id={data.id}
           className={isLike ? 'fillHeart' : 'lineHeart'}
           src={isLike ? fillHeart : lineHeart}
@@ -52,4 +52,4 @@ const AttractionsList = ({ data, index }) => {
   )
 }
 
-export default AttractionsList
+export default memo(AttractionsList)
