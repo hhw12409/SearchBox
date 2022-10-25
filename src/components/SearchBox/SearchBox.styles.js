@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const Container = styled.form`
+  z-index: 10;
   width: 100%;
   padding: 15px;
   position: fixed;

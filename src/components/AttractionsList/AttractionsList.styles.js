@@ -30,6 +30,24 @@ const Container = styled.div`
     height: 120px;
     border-radius: 10px;
   }
+  div > img {
+    width: 20px;
+    height: 20px;
+  }
+  div > div {
+    display: flex;
+    align-items: center;
+    span {
+      color: #979c9e;
+      font-size: 14px;
+      margin-right: 5px;
+    }
+  }
+  div > div:nth-child(4) {
+    position: relative;
+    left: 160px;
+    top: 40px;
+  }
 `
 
 export { Container }

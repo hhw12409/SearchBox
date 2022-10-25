@@ -36,19 +36,20 @@ const AttractionsList = ({ data, value }) => {
       <div>
         <h1>{highlightedText(data.name, value)}</h1>
         <p>{data.description}</p>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div>
           <Stars stars={Math.ceil(data.reviews.averageRating * 2) / 2} />
           <span>({data.reviews.count > 99 ? '99+' : data.reviews.count})</span>
         </div>
-        <span>{data.like.count > 999 ? '999+' : data.like.count}</span>
-        <img
-          onClick={handleLikeClick}
-          id={data.id}
-          className={isLike ? 'fillHeart' : 'lineHeart'}
-          src={isLike ? fillHeart : lineHeart}
-          alt="Heart"
-          style={{ width: 20, height: 20 }}
-        />
+        <div>
+          <span>{data.like.count > 999 ? '999+' : data.like.count}</span>
+          <img
+            onClick={handleLikeClick}
+            id={data.id}
+            className={isLike ? 'fillHeart' : 'lineHeart'}
+            src={isLike ? fillHeart : lineHeart}
+            alt="Heart"
+          />
+        </div>
       </div>
     </Container>
   )
