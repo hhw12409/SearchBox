@@ -12,6 +12,16 @@ const Home = () => {
   const [inputValue, setInputValue] = useState('')
   const [searchValue, setSeachValue] = useState('')
 
+  const { data, isLoading } = useQuery(
+    ['attractions', searchValue],
+    API.getAttraction,
+    {
+      onError: e => {
+        console.log(e)
+      },
+    },
+  )
+
   const handleScroll = useCallback(() => {
     if (window.scrollY >= 50) {
       setScroll(true)
@@ -40,14 +50,6 @@ const Home = () => {
     setSeachValue(inputValue)
   }
 
-  const { data, isLoading } = useQuery(
-    ['attractions', searchValue],
-    API.getAttraction,
-    {
-      retryDelay: 1000,
-    },
-  )
-
   if (isLoading) {
     return (
       <Skeleton
@@ -71,8 +73,8 @@ const Home = () => {
         onClick={clearSearchValue}
       />
       <Wrapper>
-        {data.map((i, index) => (
-          <AttractionsList data={i} key={i.id} index={index} />
+        {data.map(i => (
+          <AttractionsList value={searchValue} data={i} key={i.id} />
         ))}
       </Wrapper>
     </Container>
