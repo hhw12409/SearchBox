@@ -5,6 +5,7 @@ import fillHeart from '../../assets/image/fill-heart.svg'
 import API from '../../apis/apis'
 import { useQuery } from '@tanstack/react-query'
 import highlightedText from '../../utils/highlightedText'
+import Stars from '../Stars/Stars'
 
 const AttractionsList = ({ data, value }) => {
   const [fillLikeId, setFillLikeId] = useState('')
@@ -35,8 +36,8 @@ const AttractionsList = ({ data, value }) => {
       <div>
         <h1>{highlightedText(data.name, value)}</h1>
         <p>{data.description}</p>
-        <div>
-          <span>{Math.ceil(data.reviews.averageRating * 2) / 2}</span>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Stars stars={Math.ceil(data.reviews.averageRating * 2) / 2} />
           <span>({data.reviews.count > 99 ? '99+' : data.reviews.count})</span>
         </div>
         <span>{data.like.count > 999 ? '999+' : data.like.count}</span>
