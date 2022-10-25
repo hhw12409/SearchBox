@@ -4,7 +4,7 @@ import { Container, Wrapper } from '../../pages/Home'
 import SearchBox from '../SearchBox/SearchBox'
 import { FlexWrapper } from './NoResult.styles'
 
-const NoResult = ({ value, onChange, scroll, onSubmit }) => {
+const NoResult = ({ value, onChange, scroll, onSubmit, onClick }) => {
   return (
     <Container>
       <SearchBox
@@ -12,14 +12,11 @@ const NoResult = ({ value, onChange, scroll, onSubmit }) => {
         onChange={onChange}
         scroll={scroll}
         onSubmit={onSubmit}
+        onClick={onClick}
       />
       <Wrapper>
         <FlexWrapper>
-          <img
-            src={noResult}
-            alt="noResult"
-            style={{ width: 66, height: 53, marginBottom: 20 }}
-          />
+          <img src={noResult} alt="noResult" />
           <p>검색어에 맞는 관광지가 없어요.</p>
           <p>다른 검색어로 찾아보세요.</p>
         </FlexWrapper>

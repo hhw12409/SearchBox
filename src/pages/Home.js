@@ -31,6 +31,10 @@ const Home = () => {
     setInputValue(e.target.value)
   }
 
+  const clearSearchValue = () => {
+    setInputValue('')
+  }
+
   const handleValueSubmit = e => {
     e.preventDefault()
     setSeachValue(inputValue)
@@ -64,6 +68,7 @@ const Home = () => {
         onChange={handleChangeSearchValue}
         scroll={scroll}
         onSubmit={handleValueSubmit}
+        onClick={clearSearchValue}
       />
       <Wrapper>
         {data.map((i, index) => (
@@ -77,6 +82,7 @@ const Home = () => {
       onChange={handleChangeSearchValue}
       scroll={scroll}
       onSubmit={handleValueSubmit}
+      onClick={clearSearchValue}
     />
   )
 }

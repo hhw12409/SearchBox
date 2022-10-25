@@ -11,6 +11,12 @@ const Container = styled.form`
     position: absolute;
     padding: 10px;
   }
+  img:last-child {
+    position: relative;
+    left: -30px;
+    top: 5px;
+    cursor: pointer;
+  }
   input {
     width: 50vh;
     padding: 10px 36px;
