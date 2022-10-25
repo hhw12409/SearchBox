@@ -3,6 +3,9 @@ import reset from 'styled-reset'
 
 const Globalstyle = createGlobalStyle`
   ${reset}
+  body {
+    width: 450px;
+  }
   * {
     box-sizing: border-box;
   }
