@@ -4,8 +4,9 @@ import lineHeart from '../../assets/image/line-heart.svg'
 import fillHeart from '../../assets/image/fill-heart.svg'
 import API from '../../apis/apis'
 import { useQuery } from '@tanstack/react-query'
+import highlightedText from '../../utils/highlightedText'
 
-const AttractionsList = ({ data, index }) => {
+const AttractionsList = ({ data, value }) => {
   const [fillLikeId, setFillLikeId] = useState('')
   const [lineLikeId, setLineLikeId] = useState('')
   const [isLike, setIsLike] = useState(data.like.isLiked)
@@ -32,7 +33,7 @@ const AttractionsList = ({ data, index }) => {
     <Container>
       <img src={data.coverImageUrl} alt="thumbnail" />
       <div>
-        <h1>{data.name}</h1>
+        <h1>{highlightedText(data.name, value)}</h1>
         <p>{data.description}</p>
         <div>
           <span>{Math.ceil(data.reviews.averageRating * 2) / 2}</span>
